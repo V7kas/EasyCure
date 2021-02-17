@@ -1,12 +1,11 @@
 <?php
-  session_start();
-  session_unset();
+session_start();
  ?>
 <!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
-<title>doclogin</title>
+<title>p_login</title>
 <style>
 	form {
     border: 3px solid #0066FF;
@@ -51,11 +50,11 @@
 
 <body>
 <div class="heading" style="font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', 'serif'">
-<font size="+6">Doctor's Login</font>
+<font size="+6">Patients Login</font>
 </div>
-<form method="post"  >
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 	<div class="image">
-      <img src="../images/doc1.png" width="250" height="250" alt="png"/>
+      <img src="../css/images/patient.png" width="250" height="250" alt="png"/>
     </div>
   <div class="subject">
   <font size="+2">
@@ -63,7 +62,7 @@
   <input type="text" placeholder="Enter Username" name="uname" required><br>
   <label><b>Password&nbsp</b></label><br>
   <input type="password" placeholder="Enter Password" name="psw" required><br>
-    <button type="submit" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">Login</button><br>
+    <button type="submit">Login</button><br>
     <a href="signup.php">not Sign Up yet?</a><br><br>
     </font>
   </div>
@@ -79,15 +78,16 @@
         }else{
 			       $usr = $_POST["uname"];
 			       $pass = $_POST["psw"];
-             $sql="SELECT `d_user` , `d_pass` FROM `easycure`.`doctor` WHERE d_user = '$usr' LIMIT 0 , 1 ";
+             $sql="SELECT `p_user` , `p_pass` FROM `easycure`.`patient` WHERE p_user = '$usr' LIMIT 0 , 1 ";
              $result = mysqli_query($conn, $sql);
              if (mysqli_num_rows($result) > 0) {
                 $row=mysqli_fetch_array($result,MYSQLI_NUM);
                 if($row[0] == $usr && $row[1] == $pass){
                   mysqli_close($conn);
-                  $_SESSION["d_userName"] = $usr;
-                  header('Location: DoctorProfile.php');
-                  //echo "<script>window.open('DoctorProfile.php')</script>";
+                  $_SESSION["p_user"] = $usr;
+                 echo "<script>window.open('hospital_list.php')</script>";
+					//header("location: hospital_list.php");
+					
                 } else {
                   mysqli_close($conn);
                   echo "<script>alert('Invalid Password')</script>";

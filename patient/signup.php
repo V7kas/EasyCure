@@ -7,7 +7,7 @@
 	form {
     border: 3px solid #0066FF;
     margin: 0 150px 0 150px ;
-	
+
 }
 	.heading{
 		margin-left: 300px;
@@ -24,7 +24,7 @@
     width: 50%;
     padding: 12px 20px;
     margin: 8px 0;
-    display: inline-block;
+
     border: 1px solid #ccc;
 		box-sizing: border-box;
 	}
@@ -42,8 +42,6 @@
     width:15%;
 	border: none;
 }
-	
-
 </style>
 </head>
 <body>
@@ -52,7 +50,7 @@
 </div>
 <form>
 <div class="image">
-  <img src="../images/flatpat.png" width="150" height="150" alt="png"/> </div>	
+  <img src="../css/images/patient.png" width="150" height="150" alt="png"/> </div>
 <div class="subject" style="font-family: Baskerville, 'Palatino Linotype', Palatino, 'Century Schoolbook L', 'Times New Roman', 'serif'">
 <font size="+2">
 	<label><b>First Name</b></label><br>
@@ -71,8 +69,10 @@
       <input type="radio" name="gender" value="male" checked> Male
       <input type="radio" name="gender" value="female"> Female
       <input type="radio" name="gender" value="other"> Other<br>
-      <button type="submit">Sign Up</button><br>
-      <a href="login.htm">Alredy logged in?</a><br><br>
+      <button type="submit">Sign Up</button><br><br>
+      <a href="login.php">Alredy logged in?</a><br><br>
+
+
 </font>
 </div>
 </form>
